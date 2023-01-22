@@ -1,10 +1,10 @@
-const { Picture } = require('../models');
 const createHttpError = require("http-errors");
 
-module.exports.addPicToModel = async (req, res, next) => {
+module.exports.addPowers = async (req, res, next) => {
   const {
     ModelClass,
     modelName,
+    body : {powerIdArray},
     file,
     params: { id },
   } = req;
@@ -13,17 +13,17 @@ module.exports.addPicToModel = async (req, res, next) => {
     if (modelName !== 'Hero') {
       throw createHttpError(404, `You can't add pictures to ${modelName}`);
     }
-    
+    if (!powerIdArray) {
+      throw createHttpError(404, `powerIdArray is not defined for ${modelName}`);  
+    }
     const hero = await ModelClass.findByPk(id);
     if (!hero) {
        throw createHttpError(404, `${modelName} not found`);
     }
     
-    const picture = await Picture.create({ picPath: file.filename });
-    
-    picture.setHero(hero);
+    hero.setPowers(powerIdArray);
 
-    res.status(201).send({ data: picture });
+    res.status(201).send({ data: powerIdArray });
 
   } catch (error) {
     next(error);

@@ -1,0 +1,8 @@
+POST http://localhost:5000/api/heroes/2/powers
+Content-Type: application/json
+
+{
+    "powerIdArray": [
+        1, 4
+    ]
+}

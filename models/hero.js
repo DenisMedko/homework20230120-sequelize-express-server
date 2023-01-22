@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       });
       Hero.belongsToMany(models.Power, {
         foreignKey: 'heroId',
-        through: 'heroes_to_powers'
+        through: 'heroes_to_powers',
+        as: 'powers',
       });
     }
   }

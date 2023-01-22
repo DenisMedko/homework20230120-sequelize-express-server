@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: true,
         },
+        as: 'heroes'
       });
     }
   }

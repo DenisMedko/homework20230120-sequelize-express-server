@@ -13,9 +13,11 @@ module.exports.createModel = async (req, res, next) => {
 };
 
 module.exports.getModels = async (req, res, next) => {
-  const { ModelClass } = req;
+  const { ModelClass, relationsArray } = req;
 
-  const models = await ModelClass.findAll();
+  const models = await ModelClass.findAll({
+    include: relationsArray,
+  });
 
   res.send({ data: models });
 };

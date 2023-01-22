@@ -1,0 +1,9 @@
+POST http://localhost:5000/api/heroes/
+Content-Type: application/json
+
+{
+    "nickname": "super hero 2",
+    "realName": "Vasya Pupkin2",
+    "originDescription": "He was born on Fryday",
+    "catchPhrase": "Nobody knows about troubles I have seen"
+}
