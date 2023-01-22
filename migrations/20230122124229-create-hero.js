@@ -24,10 +24,6 @@ module.exports = {
         type: Sequelize.TEXT,
         field: 'catch_phrase',
       },
-      imageId: {
-        type: Sequelize.INTEGER,
-        field: 'image_id',
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

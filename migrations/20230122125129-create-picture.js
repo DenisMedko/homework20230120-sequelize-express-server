@@ -12,6 +12,7 @@ module.exports = {
       heroId: {
         type: Sequelize.INTEGER,
         field: 'hero_id',
+        //allowNull: false,
         references: {
           model: 'heroes',
           key: 'id',
@@ -22,6 +23,7 @@ module.exports = {
       picPath: {
         type: Sequelize.STRING,
         field: 'pic_path',
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

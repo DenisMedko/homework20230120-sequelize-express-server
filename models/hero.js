@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Hero.hasMany(models.Pictures, {
+      Hero.hasMany(models.Picture, {
         foreignKey: 'heroId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
@@ -36,7 +36,6 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: true,
-        isAlphanumeric: true,
         notEmpty: true,
       },
     },
@@ -48,7 +47,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    imageId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Hero',

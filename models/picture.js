@@ -14,12 +14,22 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'heroId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        validate: {
+          notNull: true,
+        },
       });
     }
   }
   Picture.init({
-    picPath: DataTypes.STRING,
-    field: 'pic_path',
+    picPath: {
+      type: DataTypes.STRING,
+      field: 'pic_path',
+      validate: {
+        notEmpty: true,
+      },
+    },
   }, {
     sequelize,
     modelName: 'Picture',
